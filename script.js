@@ -25,7 +25,6 @@ closeIcon.addEventListener("click", () => {
     popupBox.classList.remove("show");
     document.querySelector("body").style.overflow = "auto";
 });
-
 function showNotes() {
     if(!notes) return;
     document.querySelectorAll(".note").forEach(li => li.remove());
@@ -81,6 +80,7 @@ function updateNote(noteId, title, filterDesc) {
 }
 
 addBtn.addEventListener("click", e => {
+  
     e.preventDefault();
     let title = titleTag.value.trim(),
     description = descTag.value.trim();
@@ -98,8 +98,10 @@ addBtn.addEventListener("click", e => {
             isUpdate = false;
             notes[updateId] = noteInfo;
         }
+      
         localStorage.setItem("notes", JSON.stringify(notes));
         showNotes();
         closeIcon.click();
+      
     }
 });
